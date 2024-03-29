@@ -240,6 +240,11 @@ function New-AsBuiltReport {
     )
     #endregion Script Parameters
 
+    if ($psISE) {
+        Write-Error -Message "You cannot run this script inside the PowerShell ISE. Please execute it from the PowerShell Command Window."
+        break
+    }
+
     $DirectorySeparatorChar = [System.IO.Path]::DirectorySeparatorChar
 
     try {
